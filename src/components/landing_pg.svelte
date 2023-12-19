@@ -20,7 +20,7 @@
 		display: block;
 	}
 	.home {
-		background-image: url(./matthias-wagner-QrqeusbpFMM-unsplash.jpg);
+		background-image: url(./landing_img.webp);
 		background-position: center;
 		background-repeat: no-repeat;
 		background-size: cover;
