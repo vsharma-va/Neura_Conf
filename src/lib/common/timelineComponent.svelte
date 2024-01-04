@@ -21,7 +21,7 @@
 	const val = '3px solid #339af0';
 	let events = events_day1;
 	let buttonBorder1 = {
-		border: '3px solid #339af0'
+		border: val
 	};
 	let buttonBorder2 = {};
 	function handleclick1(event) {

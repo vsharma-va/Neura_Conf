@@ -1,5 +1,5 @@
 <script>
-	import Header from '$lib/header/header.svelte';
+	import Header from '$lib/common/header.svelte';
 	import '../app.pcss';
 	import { SvelteUIProvider } from '@svelteuidev/core';
 	import 'aos/dist/aos.css';

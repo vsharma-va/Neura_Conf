@@ -1,5 +1,5 @@
 <script>
-	import CountDownTimer from '../components/CountDownTimer.svelte';
+	import CountDownTimer from '../common/CountDownTimer.svelte';
     const eventDate = "2024-01-15T00:00:00";
 </script>
 
@@ -20,7 +20,7 @@
 		display: block;
 	}
 	.home {
-		background-image: url(./landing_img.webp);
+		background-image: url(../../assets/images/landing_img.webp);
 		background-position: center;
 		background-repeat: no-repeat;
 		background-size: cover;
