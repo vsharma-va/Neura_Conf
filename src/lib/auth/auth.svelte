@@ -1,95 +1,157 @@
 <script>
-    // import { authHandlers } from "../store/store";
-    import '@fortawesome/fontawesome-free/css/all.min.css'
+	// import { authHandlers } from "../store/store";
+	import '@fortawesome/fontawesome-free/css/all.min.css';
+	import { enhance } from '$app/forms';
 
-    let email = "";
-    let password = "";
-    let confirmPass = "";
-    let error = false;
-    let register = false;
-    let authenticating = false;
+	export let form;
 
-    // async function handleAuthenticate() {
-    //     if (authenticating) {
-    //         return;
-    //     }
-    //     if (!email || !password || (register && !confirmPass)) {
-    //         error = true;
-    //         return;
-    //     }
-    //     authenticating = true;
+	let email = '';
+	let branch = '';
+	let year = '';
+	let error = { emailError: '', branchError: '', yearError: '' };
+	let register = true;
+	let authenticating = false;
 
-    //     try {
-    //         if (!register) {
-    //             await authHandlers.login(email, password);
-    //         } else {
-    //             await authHandlers.signup(email, password);
-    //         }
-    //     } catch (err) {
-    //         console.log("There was an auth error", err);
-    //         error = true;
-    //         authenticating = false;
-    //     }
-    // }
+	// async function handleAuthenticate() {
+	//     if (authenticating) {
+	//         return;
+	//     }
+	//     if (!email || !password || (register && !confirmPass)) {
+	//         error = true;
+	//         return;
+	//     }
+	//     authenticating = true;
 
-    function handleRegister() {
-        register = !register;
-    }
+	//     try {
+	//         if (!register) {
+	//             await authHandlers.login(email, password);
+	//         } else {
+	//             await authHandlers.signup(email, password);
+	//         }
+	//     } catch (err) {
+	//         console.log("There was an auth error", err);
+	//         error = true;
+	//         authenticating = false;
+	//     }
+	// }
+
+	function handleRegister() {
+		register = !register;
+	}
+
+	function handleLearner() {
+		if (!email.includes('@learner.manipal.edu')) {
+			error.emailError = 'Input a valid learner ID';
+		} else {
+			error.emailError = '';
+		}
+	}
+
+	function handleBranch() {
+		if (!branch) {
+			error.branchError = 'Enter a valid branch';
+		} else {
+			error.branchError = '';
+		}
+	}
+
+	function handleYear() {
+		if (!/^\d+$/.test(year)) {
+			error.yearError = 'Enter a valid year';
+		} else if (year > 3) {
+			error.yearError = 'Enter a valid year';
+		} else {
+			error.yearError = '';
+		}
+	}
+
+	function submitForm({ formData }) {
+		console.log(error);
+		if((!error.emailError && !error.yearError && !error.branchError) && (email && branch && year)) {
+			formData.set("learnerEmailId", email);
+			formData.set("branch", branch);
+			formData.set("year", year);
+			authenticating = true;
+			console.log("EHLLO");
+		}
+	}
 </script>
 
 <div class="authContainer">
-    <form>
-        <h1>{register ? "Register" : "Login"}</h1>
-        {#if error}
-            <p class="error">The information you have entered is not correct</p>
-        {/if}
-        <label>
-            <p class={email ? " above" : " center"}>Email</p>
-            <input bind:value={email} type="email" placeholder="Email" />
-        </label>
-        <label>
-            <p class={password ? " above" : " center"}>Password</p>
-            <input
-                bind:value={password}
-                type="password"
-                placeholder="Password"
-            />
-        </label>
-        {#if register}
-            <label>
-                <p class={confirmPass ? " above" : " center"}>
-                    Confirm Password
-                </p>
-                <input
-                    bind:value={confirmPass}
-                    type="password"
-                    placeholder="Confirm Password"
-                />
-            </label>
-        {/if}
+	<form action="?/register" method="post" use:enhance={(event) => {
+			submitForm(event);}}>
+		<h1>{register ? "Register" : "Login"}</h1>
+		{#if form}
+			{#if form.inputError}
+		    <p class="error">The information you have entered is not correct</p>
+			{/if}
+		{/if}
+		<label>
+			<p class={email ? " above" : " center"}>Learner Id</p>
+			<input bind:value={email} type="email" placeholder="Learner Id" on:input={handleLearner} />
+			{#if error.emailError}
+				<p class="error">{error.emailError}</p>
+			{/if}
+		</label>
+		<label>
+			<p class={branch ? " above" : " center"}>Branch</p>
+			<input
+				bind:value={branch}
+				type="text"
+				placeholder="Branch"
+				on:input={handleBranch}
+			/>
+			{#if error.branchError}
+				<p class="error">{error.branchError}</p>
+			{/if}
+		</label>
+		<label>
+			<p class={year ? " above" : " center"}>Year</p>
+			<input
+				bind:value={year}
+				type="number"
+				placeholder="Year"
+				on:input={handleYear}
+			/>
+			{#if error.yearError}
+				<p class="error">{error.yearError}</p>
+			{/if}
+		</label>
+		<!--{#if register}-->
+		<!--    <label>-->
+		<!--        <p class={confirmPass ? " above" : " center"}>-->
+		<!--            Confirm Password-->
+		<!--        </p>-->
+		<!--        <input-->
+		<!--            bind:value={confirmPass}-->
+		<!--            type="password"-->
+		<!--            placeholder="Confirm Password"-->
+		<!--        />-->
+		<!--    </label>-->
+		<!--{/if}-->
 
-        <button type="button" class="submitBtn">
-            {#if authenticating}
-                <i class="fa-solid fa-spinner loadingSpinner" />
-            {:else}
-                Submit
-            {/if}
-        </button>
-    </form>
-    <div class="options">
-        <p>Or</p>
-        {#if register}
-            <div>
-                <p>Already have an account?</p>
-                <p on:click={handleRegister} on:keydown={() => {}}>Login</p>
-            </div>
-        {:else}
-            <div>
-                <p>Don't have an account?</p>
-                <p on:click={handleRegister} on:keydown={() => {}}>Register</p>
-            </div>
-        {/if}
-    </div>
+		<button type="submit" class="submitBtn">
+			{#if authenticating}
+				<i class="fa-solid fa-spinner loadingSpinner" />
+			{:else}
+				Submit
+			{/if}
+		</button>
+	</form>
+<!--	<div class="options">-->
+<!--		<p>Or</p>-->
+<!--		{#if register}-->
+<!--			<div>-->
+<!--				<p>Already have an account?</p>-->
+<!--				<p on:click={handleRegister} on:keydown={() => {}}>Login</p>-->
+<!--			</div>-->
+<!--		{:else}-->
+<!--			<div>-->
+<!--				<p>Don't have an account?</p>-->
+<!--				<p on:click={handleRegister} on:keydown={() => {}}>Register</p>-->
+<!--			</div>-->
+<!--		{/if}-->
+<!--	</div>-->
 </div>
 
 <style>
