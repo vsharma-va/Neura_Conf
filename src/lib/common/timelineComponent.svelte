@@ -5,16 +5,16 @@
 
 	const events_day1 = [
 		{ event: 'Inauguration', time: '9:00 A.M - 10:00 A.M' },
-		{ event: 'Speaker Session 1', time: '10:00-11:00' },
+		{ event: 'Mr. Bhargava Ramana', time: '10:00-11:00' },
 		{ event: 'Panel Discussion', time: '11:30-1:00' },
 		{ event: 'Quiz Prelims', time: '1:30-3:00' },
-		{ event: 'Speaker Session 2', time: '2:30-3:30' },
-		{ event: 'Speaker Session 3', time: '3:45-4:45' }
+		{ event: 'Mr. Ramit Sawhney', time: '2:30-3:30' },
+		{ event: 'Mr. Venkateswaran Krishnan ', time: '3:45-4:45' }
 	];
 	const events_day2 = [
-		{ event: 'Drone Session/Treasure Hunt', time: '10:00' },
-		{ event: 'Keynote Address', time: '12:00-1:30' },
-		{ event: 'Speaker Session 1', time: '2:30-3:30' },
+		{ event: 'Treasure Hunt', time: '10:00' },
+		{ event: 'Mr Saran Joseph', time: '12:00-1:30' },
+		{ event: 'Mr Abhijit Chincholkar', time: '2:30-3:30' },
 		{ event: 'Quiz Final', time: '3:30-5:00' },
 		{ event: 'Closing Ceremony', time: '5:00' }
 	];
@@ -48,7 +48,7 @@
 			variant="subtle"
 			radius="md"
 			size="xl"
-            id="bt1"
+			id="bt1"
 			uppercase
 			ripple>Day 1</Button
 		>
@@ -58,7 +58,7 @@
 			variant="subtle"
 			radius="md"
 			size="xl"
-            id="bt2"
+			id="bt2"
 			uppercase
 			ripple>Day 2</Button
 		>

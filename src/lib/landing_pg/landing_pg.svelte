@@ -2,11 +2,11 @@
 	import { signIn } from '@auth/sveltekit/client';
 	import CountDownTimer from '$lib/common/CountDownTimer.svelte';
 
-	const eventDate = '2024-01-15T00:00:00';
+	const eventDate = '2024-01-12T00:00:00';
 </script>
 
 <section class="home">
-	<div class="hero-container" style="margin-left: 20px;">
+	<div class="hero-container">
 		<div class="hero-text">
 			<span class="landing-title" data-aos="fade-up" data-aos-duration="800">Industry Conclave 2.0</span>
 			<span class="text-loc" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100"> Bengaluru, India | January 2024</span>
