@@ -1,7 +1,7 @@
 <script>
 	import logo3 from '../../assets/images/logo3.png';
 	import { signIn } from '@auth/sveltekit/client';
-	import { page } from '$app/stores';
+	import { navigating, page } from '$app/stores';
 	import { goto } from '$app/navigation';
 
 	let isactive = false;
@@ -9,6 +9,10 @@
 	function menuToggle(event) {
 		isactive = !isactive;
 	}
+
+	// $: if($navigating) {
+	// 	menuToggle();
+	// }
 </script>
 
 <header>
@@ -72,7 +76,7 @@
 									});
 								}}>
 								{#if $page.data.session}
-									Go To Dashboard
+									Dashboard
 								{:else}
 									Sign Up
 								{/if}

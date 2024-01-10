@@ -124,6 +124,7 @@
 				<option value="CSE CORE">CSE CORE</option>
 				<option value="CSE AI">CSE AI</option>
 				<option value="CSE CYBER">CSE CYBER</option>
+				<option value="DATA SCIENCE">DATA SCIENCE</option>
 				<option value="IT">IT</option>
 				<option value="ECE">ECE</option>
 				<option value="ENC">ENC</option>
