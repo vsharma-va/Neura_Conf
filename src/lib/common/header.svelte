@@ -1,7 +1,7 @@
 <script>
 	import logo3 from '../../assets/images/logo3.png';
-	import { signIn } from '@auth/sveltekit/client';
-	import { navigating, page } from '$app/stores';
+	import { signIn, signOut } from '@auth/sveltekit/client';
+	import { page } from '$app/stores';
 	import { goto } from '$app/navigation';
 
 	let isactive = false;
@@ -64,13 +64,17 @@
 				<div class="offcanvas-body">
 					<ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
 						<li class="nav-item">
-							<a class="nav-link active text-3xl" aria-current="page" href="/">Home</a>
+							<a class="nav-link active text-3xl" aria-current="page" href="/"
+								 data-bs-dismiss="offcanvas"
+								 on:click={() => menuToggle()}>Home</a>
 						</li>
 						<li class="nav-item">
-							<a
-								class="nav-link text-3xl"
-								on:click={() => async () => {
-									$page.data.session ? goto("/auth") :
+							<button
+								class="nav-link active text-3xl bg-transparent primary-font"
+								data-bs-dismiss="offcanvas"
+								on:click={async () => {
+									menuToggle();
+									$page.data.session ? await goto("/auth") :
 									await signIn('google', {
 										callbackUrl: '/auth/?signedIn'
 									});
@@ -80,9 +84,17 @@
 								{:else}
 									Sign Up
 								{/if}
-							</a
+							</button
 							>
 						</li>
+						{#if $page.data.session}
+							<li class="nav-item">
+								<button class="nav-link bg-transparent active text-3xl primary-font" aria-current="page"
+												data-bs-dismiss="offcanvas"
+												on:click={async () => await signOut()}>Sign Out
+								</button>
+							</li>
+						{/if}
 						<!-- <li class="nav-item dropdown text-3xl">
 							<a
 								class="nav-link dropdown-toggle"
