@@ -11,6 +11,7 @@
 	let error = { emailError: '', branchError: '', yearError: '' };
 	let register = true;
 	let authenticating = false;
+	let name = '';
 
 	// async function handleAuthenticate() {
 	//     if (authenticating) {
@@ -65,54 +66,77 @@
 		}
 	}
 
+	function handleName() {
+		if (!name) {
+			error.nameError = 'Can\'t leave this empty';
+		} else {
+			error.nameError = '';
+		}
+	}
+
 	function submitForm({ formData }) {
 		console.log(error);
-		if((!error.emailError && !error.yearError && !error.branchError) && (email && branch && year)) {
-			formData.set("learnerEmailId", email);
-			formData.set("branch", branch);
-			formData.set("year", year);
+		if ((!error.emailError && !error.yearError && !error.branchError) && (email && branch && year && name)) {
+			formData.set('learnerEmailId', email);
+			formData.set('branch', branch);
+			formData.set('year', year);
+			formData.set('name', name);
 			authenticating = true;
-			console.log("EHLLO");
+			console.log('EHLLO');
 		}
 	}
 </script>
 
-<div class="authContainer">
+<div class="flex flex-col w-full h-fit px-3 md:px-5">
 	<form action="?/register" method="post" use:enhance={(event) => {
 			submitForm(event);}}>
-		<h1>{register ? "Register" : "Login"}</h1>
+		<p class="primary-font text-gray-300 gradient-text text-[5rem]">{register ? "Register" : "Login"}</p>
 		{#if form}
 			{#if form.inputError}
-		    <p class="error">The information you have entered is not correct</p>
+				<p class="error">The information you have entered is not correct</p>
 			{/if}
 		{/if}
-		<label>
+		<label class="">
 			<p class={email ? " above" : " center"}>Learner Id</p>
 			<input bind:value={email} type="email" placeholder="Learner Id" on:input={handleLearner} />
 			{#if error.emailError}
 				<p class="error">{error.emailError}</p>
 			{/if}
 		</label>
+		<label class="">
+			<p class={name ? " above" : " center"}>Full Name</p>
+			<input bind:value={name} type="text" placeholder="Full Name" on:input={handleName} />
+			{#if error.nameError}
+				<p class="error">{error.nameError}</p>
+			{/if}
+		</label>
 		<label>
 			<p class={branch ? " above" : " center"}>Branch</p>
-			<input
-				bind:value={branch}
-				type="text"
-				placeholder="Branch"
-				on:input={handleBranch}
-			/>
+			<!--			<input-->
+			<!--				bind:value={branch}-->
+			<!--				type="text"-->
+			<!--				placeholder="Branch"-->
+			<!--				on:input={handleBranch}-->
+			<!--			/>-->
+			<select on:input={handleBranch} bind:value={branch}
+							class="w-full p-3 bg-transparent text-gray-500 outline-[#070e4f] border-[#070e4f] accent-[#070e4f]">
+				<option value="" disabled selected>Branch</option>
+				<option value="CSE CORE">CSE CORE</option>
+				<option value="CSE AI">CSE AI</option>
+			</select>
 			{#if error.branchError}
 				<p class="error">{error.branchError}</p>
 			{/if}
 		</label>
 		<label>
 			<p class={year ? " above" : " center"}>Year</p>
-			<input
-				bind:value={year}
-				type="number"
-				placeholder="Year"
-				on:input={handleYear}
-			/>
+			<select on:input={handleYear} bind:value={year}
+							class="w-full p-3 bg-transparent text-gray-500 outline-[#070e4f] border-[#070e4f] accent-[#070e4f]">
+				<option value="" disabled selected>Current Year</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+			</select>
 			{#if error.yearError}
 				<p class="error">{error.yearError}</p>
 			{/if}
@@ -138,20 +162,20 @@
 			{/if}
 		</button>
 	</form>
-<!--	<div class="options">-->
-<!--		<p>Or</p>-->
-<!--		{#if register}-->
-<!--			<div>-->
-<!--				<p>Already have an account?</p>-->
-<!--				<p on:click={handleRegister} on:keydown={() => {}}>Login</p>-->
-<!--			</div>-->
-<!--		{:else}-->
-<!--			<div>-->
-<!--				<p>Don't have an account?</p>-->
-<!--				<p on:click={handleRegister} on:keydown={() => {}}>Register</p>-->
-<!--			</div>-->
-<!--		{/if}-->
-<!--	</div>-->
+	<!--	<div class="options">-->
+	<!--		<p>Or</p>-->
+	<!--		{#if register}-->
+	<!--			<div>-->
+	<!--				<p>Already have an account?</p>-->
+	<!--				<p on:click={handleRegister} on:keydown={() => {}}>Login</p>-->
+	<!--			</div>-->
+	<!--		{:else}-->
+	<!--			<div>-->
+	<!--				<p>Don't have an account?</p>-->
+	<!--				<p on:click={handleRegister} on:keydown={() => {}}>Register</p>-->
+	<!--			</div>-->
+	<!--		{/if}-->
+	<!--	</div>-->
 </div>
 
 <style>

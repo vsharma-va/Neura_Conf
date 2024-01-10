@@ -35,7 +35,7 @@
 	});
 </script>
 
-<section data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+<section data-aos="fade-up" data-aos-duration="800" data-aos-delay="200" class=" flex flex-row items-center justify-center flex-wrap">
 	<ul id="countdown">
 		<li>
 			<span class="days timenumbers">{timeLeft.days}</span>
@@ -79,7 +79,7 @@
 		padding-top: 10px;
 		background-color: rgba(33, 37, 41, 0.3);
 		@media screen and (max-width: 479px) {
-			margin-right: 0.5rem;
+			margin-right: 0.8rem;
 			width: 4rem;
 		}
 	}

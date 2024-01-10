@@ -36,8 +36,9 @@ export const actions = {
 		const email = formData.get('learnerEmailId');
 		const branch = formData.get('branch');
 		const year = formData.get('year');
+		const name = formData.get('name');
 
-		if(!email || !branch || !year) {
+		if(!email || !branch || !year || !name) {
 			return { inputError: true }
 		}
 
@@ -55,6 +56,7 @@ export const actions = {
 		await icUsers.insertOne({
 			email: session.user.email,
 			learnerEmail: email,
+			name: name,
 			branch: branch,
 			year: year,
 			user_code: generatedCode,

@@ -14,6 +14,9 @@ const config = {
 	theme: {
 		extend: {
 			colors: {
+				"primary-color": "#afcbfa",
+				"on-primary-color": "#062e6f",
+				"on-primary-hover-color": "#efefef",
 				primary: {
 					50: '#FFF5F2',
 					100: '#FFF1EE',

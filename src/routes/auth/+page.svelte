@@ -2,7 +2,7 @@
 	import Auth from '$lib/auth/auth.svelte';
 </script>
 
-<div class="container">
+<div class="w-full h-screen bg-gradient-to-r from-[#000428] to-[#000046] flex items-center justify-center">
 	<Auth />
 </div>
 

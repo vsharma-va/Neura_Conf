@@ -1,6 +1,5 @@
 <script>
-	import { Text, Timeline } from '@svelteuidev/core';
-	import { Button } from '@svelteuidev/core';
+	import { Button, Timeline } from '@svelteuidev/core';
 	// import { typewriter } from '@svelteuidev/motion';
 
 	const events_day1 = [
@@ -24,11 +23,13 @@
 		border: val
 	};
 	let buttonBorder2 = {};
+
 	function handleclick1(event) {
 		buttonBorder1.border = val;
 		delete buttonBorder2.border;
 		events = events_day1;
 	}
+
 	function handleclick2(event) {
 		buttonBorder2.border = val;
 		delete buttonBorder1.border;
@@ -36,7 +37,10 @@
 	}
 </script>
 
-<section class="home">
+<section class="home"
+				 data-aos="fade-up"
+				 data-aos-duration="800"
+>
 	<div class="section-title">
 		<div class="title-pre">Agenda</div>
 		<div class="title-body">Event Schedule</div>
@@ -50,7 +54,8 @@
 			size="xl"
 			id="bt1"
 			uppercase
-			ripple>Day 1</Button
+			ripple>Day 1
+		</Button
 		>
 		<Button
 			on:click={handleclick2}
@@ -60,7 +65,8 @@
 			size="xl"
 			id="bt2"
 			uppercase
-			ripple>Day 2</Button
+			ripple>Day 2
+		</Button
 		>
 	</div>
 	<Timeline active={100} lineWidth={4} bulletSize={30}>
@@ -74,64 +80,70 @@
 </section>
 
 <style>
-	section {
-		overflow: hidden;
-		display: block;
-	}
-	.home {
-		background-color: white;
-		min-height: 100vh;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		padding: 20px;
-		z-index: 1;
-	}
-	.title {
-		font-size: 3rem;
-		font-family: 'Ostrich-Sans-black', Courier, monospace;
-	}
-	.section-title {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		margin: 30px;
-	}
-	.title-pre {
-		color: #0048ff;
-		font-weight: 800;
-		font-size: 1.5rem;
-		line-height: 1.2;
-		font-variant: normal;
-		font-family: 'Ostrich-Sans-black', Courier, monospace;
+    section {
+        overflow: hidden;
+        display: block;
+    }
 
-		@media screen and (max-width: 576px) {
-			font-size: 10vw;
-		}
-	}
-	.title-body {
-		color: black;
-		font-weight: 800;
-		font-size: 5rem;
-		line-height: 1.2;
-		font-variant: normal;
-		font-family: 'Ostrich-Sans-bold', Courier, monospace;
+    .home {
+        background-color: white;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        z-index: 1;
+    }
 
-		@media screen and (max-width: 576px) {
-			font-size: 10vw;
-		}
-	}
-	.button-container {
-		width: 100%;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		flex-direction: row;
-		gap: 50px;
-		font-family: 'Ostrich-Sans-bold', Courier, monospace;
-		font-size: 2rem;
-		margin-bottom: 30px;
-	}
+    .title {
+        font-size: 3rem;
+        font-family: 'Ostrich-Sans-black', Courier, monospace;
+    }
+
+    .section-title {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 30px;
+    }
+
+    .title-pre {
+        color: #0048ff;
+        font-weight: 800;
+        font-size: 1.5rem;
+        line-height: 1.2;
+        font-variant: normal;
+        font-family: 'Ostrich-Sans-black', Courier, monospace;
+
+        @media screen and (max-width: 576px) {
+            font-size: 10vw;
+        }
+    }
+
+    .title-body {
+        color: black;
+        font-weight: 800;
+        font-size: 5rem;
+        line-height: 1.2;
+        font-variant: normal;
+        font-family: 'Ostrich-Sans-bold', Courier, monospace;
+
+        @media screen and (max-width: 576px) {
+            font-size: 10vw;
+        }
+    }
+
+    .button-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        gap: 50px;
+        font-family: 'Ostrich-Sans-bold', Courier, monospace;
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
 </style>
