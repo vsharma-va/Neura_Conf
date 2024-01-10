@@ -6,7 +6,7 @@
 	export let form;
 
 	let email = '';
-	let branch = '';
+	let branch = undefined;
 	let year = '';
 	let error = { emailError: '', branchError: '', yearError: '' };
 	let register = true;
@@ -49,6 +49,7 @@
 	}
 
 	function handleBranch() {
+		console.log(branch);
 		if (!branch) {
 			error.branchError = 'Enter a valid branch';
 		} else {
@@ -118,7 +119,7 @@
 			<!--				placeholder="Branch"-->
 			<!--				on:input={handleBranch}-->
 			<!--			/>-->
-			<select on:input={handleBranch} bind:value={branch}
+			<select on:change={(event) => {branch = event.currentTarget.value; handleBranch()}}
 							class="w-full p-3 bg-transparent text-gray-500 outline-[#070e4f] border-[#070e4f] accent-[#070e4f]">
 				<option value="" disabled selected>Branch</option>
 				<option value="CSE CORE">CSE CORE</option>
@@ -135,7 +136,7 @@
 		</label>
 		<label>
 			<p class={year ? " above" : " center"}>Year</p>
-			<select on:input={handleYear} bind:value={year}
+			<select on:change={(event) => {year = event.currentTarget.value; handleYear();}}
 							class="w-full p-3 bg-transparent text-gray-500 outline-[#070e4f] border-[#070e4f] accent-[#070e4f]">
 				<option value="" disabled selected>Current Year</option>
 				<option value="1">1</option>
