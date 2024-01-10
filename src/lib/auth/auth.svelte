@@ -123,6 +123,10 @@
 				<option value="" disabled selected>Branch</option>
 				<option value="CSE CORE">CSE CORE</option>
 				<option value="CSE AI">CSE AI</option>
+				<option value="CSE CYBER">CSE CYBER</option>
+				<option value="IT">IT</option>
+				<option value="ECE">ECE</option>
+				<option value="ENC">ENC</option>
 			</select>
 			{#if error.branchError}
 				<p class="error">{error.branchError}</p>
