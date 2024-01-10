@@ -1,8 +1,11 @@
 <script>
 	import logo3 from '../../assets/images/logo3.png';
 	import { signIn } from '@auth/sveltekit/client';
+	import { page } from '$app/stores';
+	import { goto } from '$app/navigation';
 
 	let isactive = false;
+
 	function menuToggle(event) {
 		isactive = !isactive;
 	}
@@ -63,10 +66,17 @@
 							<a
 								class="nav-link text-3xl"
 								on:click={() => async () => {
+									$page.data.session ? goto("/auth") :
 									await signIn('google', {
 										callbackUrl: '/auth/?signedIn'
 									});
-								}}>Sign Up</a
+								}}>
+								{#if $page.data.session}
+									Go To Dashboard
+								{:else}
+									Sign Up
+								{/if}
+							</a
 							>
 						</li>
 						<!-- <li class="nav-item dropdown text-3xl">
@@ -96,167 +106,172 @@
 </header>
 
 <style>
-	.logo-text {
-		display: inline;
-		font-size: 2.5rem;
-		font-family: 'Ostrich-Sans-bold', Courier, monospace;
-	}
-	.navbar {
-		background-color: transparent;
-	}
-	.navbar-brand {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		gap: 10px;
-	}
-	.navbar-nav .nav-item {
-		padding: 0rem 0.75rem;
-		font-weight: 500;
-	}
+    .logo-text {
+        display: inline;
+        font-size: 2.5rem;
+        font-family: 'Ostrich-Sans-bold', Courier, monospace;
+    }
 
-	.navbar-nav .nav-item {
-		padding: 0rem 0.75rem;
-		font-weight: 500;
-	}
+    .navbar {
+        background-color: transparent;
+    }
 
-	.navbar-brand {
-		margin-left: 30px;
-		@media screen and (max-width:479px) {
-			margin-left: 0;
-		}
-	}
+    .navbar-brand {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
 
-	.offcanvas-header {
-		background-color: #212529;
-		color: white;
-	}
-	.offcanvas-body {
-		background-color: #212529;
-	}
+    .navbar-nav .nav-item {
+        padding: 0rem 0.75rem;
+        font-weight: 500;
+    }
 
-	/* Hamburger menu styles */
-	.hamburger {
-		font: inherit;
-		display: inline-block;
-		overflow: visible;
-		margin: 0;
-		padding: 15px;
-		cursor: pointer;
-		transition-timing-function: linear;
-		transition-duration: 0.15s;
-		transition-property: opacity, filter;
-		text-transform: none;
-		color: inherit;
-		border: 0;
-		background-color: transparent;
-	}
-	.hamburger.is-active:hover,
-	.hamburger:hover {
-		opacity: 0.7;
-	}
+    .navbar-nav .nav-item {
+        padding: 0rem 0.75rem;
+        font-weight: 500;
+    }
 
-	.hamburger.is-active .hamburger-inner,
-	.hamburger.is-active .hamburger-inner:after,
-	.hamburger.is-active .hamburger-inner:before {
-		background-color: white;
-	}
+    .navbar-brand {
+        margin-left: 30px;
+        @media screen and (max-width: 479px) {
+            margin-left: 0;
+        }
+    }
 
-	.hamburger-box {
-		position: relative;
-		display: inline-block;
-		width: 40px;
-		height: 24px;
-	}
+    .offcanvas-header {
+        background-color: #212529;
+        color: white;
+    }
 
-	.hamburger-inner {
-		top: 50%;
-		display: block;
-		margin-top: -2px;
-	}
+    .offcanvas-body {
+        background-color: #212529;
+    }
 
-	.hamburger-inner,
-	.hamburger-inner:after,
-	.hamburger-inner:before {
-		position: absolute;
-		width: 40px;
-		height: 4px;
-		transition-timing-function: ease;
-		transition-duration: 0.15s;
-		transition-property: transform;
-		border-radius: 4px;
-		background-color: white;
-	}
+    /* Hamburger menu styles */
+    .hamburger {
+        font: inherit;
+        display: inline-block;
+        overflow: visible;
+        margin: 0;
+        padding: 15px;
+        cursor: pointer;
+        transition-timing-function: linear;
+        transition-duration: 0.15s;
+        transition-property: opacity, filter;
+        text-transform: none;
+        color: inherit;
+        border: 0;
+        background-color: transparent;
+    }
 
-	.hamburger-inner:after,
-	.hamburger-inner:before {
-		display: block;
-		content: '';
-	}
+    .hamburger.is-active:hover,
+    .hamburger:hover {
+        opacity: 0.7;
+    }
 
-	.hamburger-inner:before {
-		top: -10px;
-	}
+    .hamburger.is-active .hamburger-inner,
+    .hamburger.is-active .hamburger-inner:after,
+    .hamburger.is-active .hamburger-inner:before {
+        background-color: white;
+    }
 
-	.hamburger-inner:after {
-		bottom: -10px;
-	}
-	.hamburger-box {
-		position: relative;
-		display: inline-block;
-		width: 40px;
-		height: 24px;
-	}
-	.hamburger-inner {
-		top: 50%;
-		display: block;
-		margin-top: -2px;
-	}
-	.hamburger--collapse .hamburger-inner {
-		top: auto;
-		bottom: 0;
-		transition-delay: 0.13s;
-		transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
-		transition-duration: 0.13s;
-	}
+    .hamburger-box {
+        position: relative;
+        display: inline-block;
+        width: 40px;
+        height: 24px;
+    }
 
-	.hamburger--collapse .hamburger-inner:after {
-		top: -20px;
-		transition:
-			top 0.2s cubic-bezier(0.33333, 0.66667, 0.66667, 1) 0.2s,
-			opacity 0.1s linear;
-	}
+    .hamburger-inner {
+        top: 50%;
+        display: block;
+        margin-top: -2px;
+    }
 
-	.hamburger--collapse .hamburger-inner:before {
-		transition:
-			top 0.12s cubic-bezier(0.33333, 0.66667, 0.66667, 1) 0.2s,
-			transform 0.13s cubic-bezier(0.55, 0.055, 0.675, 0.19);
-	}
+    .hamburger-inner,
+    .hamburger-inner:after,
+    .hamburger-inner:before {
+        position: absolute;
+        width: 40px;
+        height: 4px;
+        transition-timing-function: ease;
+        transition-duration: 0.15s;
+        transition-property: transform;
+        border-radius: 4px;
+        background-color: white;
+    }
 
-	.hamburger--collapse.is-active .hamburger-inner {
-		transition-delay: 0.22s;
-		transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-		transform: translate3d(0, -10px, 0) rotate(-45deg);
-	}
+    .hamburger-inner:after,
+    .hamburger-inner:before {
+        display: block;
+        content: '';
+    }
 
-	.hamburger--collapse.is-active .hamburger-inner:after {
-		top: 0;
-		transition:
-			top 0.2s cubic-bezier(0.33333, 0, 0.66667, 0.33333),
-			opacity 0.1s linear 0.22s;
-		opacity: 0;
-	}
+    .hamburger-inner:before {
+        top: -10px;
+    }
 
-	.hamburger--collapse.is-active .hamburger-inner:before {
-		top: 0;
-		transition:
-			top 0.1s cubic-bezier(0.33333, 0, 0.66667, 0.33333) 0.16s,
-			transform 0.13s cubic-bezier(0.215, 0.61, 0.355, 1) 0.25s;
-		transform: rotate(-90deg);
-	}
-	.logo-img {
-		object-fit: cover;
-		width: 3.5rem;
-		height: 3.5rem;
-	}
+    .hamburger-inner:after {
+        bottom: -10px;
+    }
+
+    .hamburger-box {
+        position: relative;
+        display: inline-block;
+        width: 40px;
+        height: 24px;
+    }
+
+    .hamburger-inner {
+        top: 50%;
+        display: block;
+        margin-top: -2px;
+    }
+
+    .hamburger--collapse .hamburger-inner {
+        top: auto;
+        bottom: 0;
+        transition-delay: 0.13s;
+        transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+        transition-duration: 0.13s;
+    }
+
+    .hamburger--collapse .hamburger-inner:after {
+        top: -20px;
+        transition: top 0.2s cubic-bezier(0.33333, 0.66667, 0.66667, 1) 0.2s,
+        opacity 0.1s linear;
+    }
+
+    .hamburger--collapse .hamburger-inner:before {
+        transition: top 0.12s cubic-bezier(0.33333, 0.66667, 0.66667, 1) 0.2s,
+        transform 0.13s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    }
+
+    .hamburger--collapse.is-active .hamburger-inner {
+        transition-delay: 0.22s;
+        transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+        transform: translate3d(0, -10px, 0) rotate(-45deg);
+    }
+
+    .hamburger--collapse.is-active .hamburger-inner:after {
+        top: 0;
+        transition: top 0.2s cubic-bezier(0.33333, 0, 0.66667, 0.33333),
+        opacity 0.1s linear 0.22s;
+        opacity: 0;
+    }
+
+    .hamburger--collapse.is-active .hamburger-inner:before {
+        top: 0;
+        transition: top 0.1s cubic-bezier(0.33333, 0, 0.66667, 0.33333) 0.16s,
+        transform 0.13s cubic-bezier(0.215, 0.61, 0.355, 1) 0.25s;
+        transform: rotate(-90deg);
+    }
+
+    .logo-img {
+        object-fit: cover;
+        width: 3.5rem;
+        height: 3.5rem;
+    }
 </style>
