@@ -9,7 +9,7 @@
 
 <div class="w-full h-fit bg-gradient-to-r from-[#000428] to-[#000046] px-[1rem] pt-[105px] pb-[225px] primary-font">
 	<div class="flex flex-col w-full h-[506px] sm:h-[430px] md:h-[484px] lg:relative">
-		<div class="flex flex-col w-full h-full rounded-[2rem] px-[32px] py-[40px] bg-image-req gap-[0.5rem]"
+		<div class="flex flex-col w-full h-full rounded-[2rem] px-[32px] py-[25px] bg-image-req gap-[0.5rem]"
 				 data-aos="fade-up"
 				 data-aos-duration="300">
 			<div class="flex w-full items-center justify-start"
