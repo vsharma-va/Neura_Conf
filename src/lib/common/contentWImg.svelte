@@ -10,7 +10,7 @@
 	<div
 		class="w-full lg:w-1/2 flex flex-col sticky top-[85px] h-[375px] sm:h-[385px] gap-8 justify-center items-center"
 		data-aos="fade-up"
-		data-aos-duration="800"
+		data-aos-duration="300"
 	>
 		<p
 			class="primary-font text-gray-300 text-[3.7rem] md:text-6xl xl:text-7xl leading-[1.15] font-normal text-left tracking-wider duration-400 ease-in-out hover:tracking-widest transition-all"
@@ -29,20 +29,17 @@
 			 data-aos-delay="250"
 	>
 		<div
-			class="flex flex-col sticky top-[85px] w-full lg:w-[75%] rounded-[2rem] bg-[#000046] h-[375px] sm:h-[385px] p-4 sm:p-8 items-center justify-start shadow-[5px_5px_rgba(_0,_0,_70,_0.4),_10px_10px_rgba(_0,_0,_70,_0.3),_15px_15px_rgba(_0,_0,_70,_0.2),_20px_20px_rgba(_0,_0,_70,_0.1),_25px_25px_rgba(_0,_0,_70,_0.05)] group"
+			class="flex flex-col sticky top-[85px] w-full lg:w-[75%] rounded-[2rem] bg-[#000046] h-[375px] sm:h-[385px] p-4 sm:p-8 items-center justify-start shadow-[5px_5px_rgba(_0,_0,_70,_0.4),_10px_10px_rgba(_0,_0,_70,_0.3),_15px_15px_rgba(_0,_0,_70,_0.2),_20px_20px_rgba(_0,_0,_70,_0.1),_25px_25px_rgba(_0,_0,_70,_0.05)]"
 		>
 			<div class="flex flex-col w-full h-full items-start">
 				<div
 					class="rounded-full w-fit flex bg-on-primary-hover-color px-7 py-2 group-hover:bg-on-primary-color group-hover:text-on-primary-hover-color transition-all">
-					<p class="primary-font text-[1.5rem]">AI Confluence</p>
+					<p class="primary-font text-[1.5rem]">Mr Bhargava Ramana</p>
 				</div>
 				<div class="w-full h-full flex flex-col gap-5 justify-around md:mt-3">
-					<p class="primary-font text-[1.2rem] xl:text-[1.5rem] lg:text-[1.3rem] tracking-wide text-gray-300">Whether
-						you're a student with a
-						groundbreaking idea or an industry professional seeking fresh perspectives, the conclave is your space for
-						meaningful connections. Building on the success of the previous conclave, we will once again ignite
-						discussions and collaborations that rejuvenate research and development prospects. we aim to foster better
-						understanding, communication. For our students and researchers</p>
+					<p class="primary-font text-[1.6rem] xl:text-[1.9rem] lg:text-[1.7rem] text-center tracking-wide text-gray-300">
+						Chief Executive Officer at<br><span class="gradient-text">Maruthshaka Aerospace & Aviation</span>
+					</p>
 				</div>
 
 			</div>
@@ -53,15 +50,15 @@
 			<div class="flex flex-col w-full h-full items-start ">
 				<div
 					class="rounded-full w-fit flex bg-on-primary-hover-color px-7 py-2 group-hover:bg-on-primary-color group-hover:text-on-primary-hover-color transition-all">
-					<p class="primary-font text-[1.5rem]">AI Confluence</p>
+					<p class="primary-font text-[1.5rem]">Mr Ramit Sawhney</p>
 				</div>
 				<div class="w-full h-full flex flex-col gap-5 justify-around md:mt-3">
-					<p class="primary-font text-[1.2rem] lg:text-[1.3rem] xl:text-[1.5rem] tracking-wide text-gray-300">Whether
-						you're a student with a
-						groundbreaking idea or an industry professional seeking fresh perspectives, the conclave is your space for
-						meaningful connections. Building on the success of the previous conclave, we will once again ignite
-						discussions and collaborations that rejuvenate research and development prospects. we aim to foster better
-						understanding, communication. For our students and researchers</p>
+					<p
+						class="primary-font text-[1.6rem] lg:text-[1.9rem] xl:text-[1.7rem] text-center tracking-wide text-gray-300">
+						Research Associate at<br><span class="gradient-text">Georgia Tech</span> and <span class="gradient-text">MBZUAI</span>
+						<br>and<br>Global head of Core AI & ML at
+						<br><span class="gradient-text">Tower Research</span>
+					</p>
 				</div>
 
 			</div>
@@ -72,17 +69,47 @@
 			<div class="flex flex-col w-full h-full items-start ">
 				<div
 					class="rounded-full w-fit flex bg-on-primary-hover-color px-7 py-2 group-hover:bg-on-primary-color group-hover:text-on-primary-hover-color transition-all">
-					<p class="primary-font text-[1.5rem]">AI Confluence</p>
+					<p class="primary-font text-[1.47rem]">Mr Venkateswaran Krishnan</p>
 				</div>
 				<div class="w-full h-full flex flex-col gap-5 justify-around md:mt-3">
-					<p class="primary-font text-[1.2rem] xl:text-[1.5rem] lg:text-[1.3rem] tracking-wide text-gray-300">Whether
-						you're a student with a
-						groundbreaking idea or an industry professional seeking fresh perspectives, the conclave is your space for
-						meaningful connections. Building on the success of the previous conclave, we will once again ignite
-						discussions and collaborations that rejuvenate research and development prospects. we aim to foster better
-						understanding, communication. For our students and researchers</p>
+					<p
+						class="primary-font text-[1.6rem] xl:text-[1.9rem] text-center lg:text-[1.7rem] tracking-wide text-gray-300">
+						Senior
+						Director Of AI Data Org at
+						<br><span class="gradient-text">Oracle Cloud</span></p>
 				</div>
-
+			</div>
+		</div>
+		<div
+			class="flex flex-col sticky top-[85px] w-full lg:w-[75%] rounded-[2rem] bg-[#000046] h-[375px] sm:h-[385px] p-4 sm:p-8 items-center justify-start shadow-[5px_5px_rgba(_0,_0,_70,_0.4),_10px_10px_rgba(_0,_0,_70,_0.3),_15px_15px_rgba(_0,_0,_70,_0.2),_20px_20px_rgba(_0,_0,_70,_0.1),_25px_25px_rgba(_0,_0,_70,_0.05)] group"
+		>
+			<div class="flex flex-col w-full h-full items-start ">
+				<div
+					class="rounded-full w-fit flex bg-on-primary-hover-color px-7 py-2 group-hover:bg-on-primary-color group-hover:text-on-primary-hover-color transition-all">
+					<p class="primary-font text-[1.5rem]">Mr Saran Joseph</p>
+				</div>
+				<div class="w-full h-full flex flex-col gap-5 justify-around md:mt-3">
+					<p
+						class="primary-font text-[1.6rem] xl:text-[1.9rem] lg:text-[1.7rem] text-center tracking-wide text-gray-300">
+						Vice President<br><span class="gradient-text">Federal Bank</span>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div
+			class="flex flex-col sticky top-[85px] w-full lg:w-[75%] rounded-[2rem] bg-[#000046] h-[375px] sm:h-[385px] p-4 sm:p-8 items-center justify-start shadow-[5px_5px_rgba(_0,_0,_70,_0.4),_10px_10px_rgba(_0,_0,_70,_0.3),_15px_15px_rgba(_0,_0,_70,_0.2),_20px_20px_rgba(_0,_0,_70,_0.1),_25px_25px_rgba(_0,_0,_70,_0.05)] group"
+		>
+			<div class="flex flex-col w-full h-full items-start ">
+				<div
+					class="rounded-full w-fit flex bg-on-primary-hover-color px-7 py-2 group-hover:bg-on-primary-color group-hover:text-on-primary-hover-color transition-all">
+					<p class="primary-font text-[1.5rem]">Mr Abhijit Chincholkar</p>
+				</div>
+				<div class="w-full h-full flex flex-col gap-5 justify-around md:mt-3">
+					<p
+						class="primary-font text-[1.6rem] text-center xl:text-[1.9rem] lg:text-[1.7rem] tracking-wide text-gray-300">
+						Senior Business Manager in Automation at<br><span class="gradient-text">IBM</span>
+					</p>
+				</div>
 			</div>
 		</div>
 	</div>
