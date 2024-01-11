@@ -90,10 +90,10 @@
 				<form action="?/markAttendance" method="post" use:enhance={(event) => {
 			submitForm(event);}}>
 					<div
-						class="flex flex-col py-4 px-3 bg-[#000044] rounded-[2rem] w-fit z-[5] absolute top-[28%] left-[32%] gap-2">
+						class="flex flex-col py-4 px-3 bg-[#000044] rounded-[2rem] w-[90%] sm:w-[80%] md:w-[70%] lg:w-[45%] xl:w-[35%] z-[5] absolute left-5 top-[28%] md:left-[18%] lg:left-[25%] xl:left-[32%] gap-2">
 						<div class="flex flex-col items-center justify-center">
 							<input type="text" value="{eventType}" class="hidden">
-							<p class="primary-font text-center text-4xl text-white mb-2 gradient-text-opp">Confirm Details</p>
+							<p class="primary-font text-center text-2xl lg:text-4xl text-white mb-2 gradient-text-opp">Confirm Details</p>
 						</div>
 						<div class="flex flex-col">
 							<p class="primary-font text-white text-left text-4xl">Name</p>
@@ -106,10 +106,6 @@
 						<div class="flex flex-col">
 							<p class="primary-font text-left text-4xl text-white">Year</p>
 							<p class="primary-font gradient-text text-left text-4xl">{form.user.year}</p>
-						</div>
-						<div class="flex flex-col">
-							<p class="primary-font text-left text-4xl text-white">Learner Email</p>
-							<p class="primary-font gradient-text text-left text-4xl">{form.user.learnerEmail}</p>
 						</div>
 						<div class="flex flex-col gap-2 w-full">
 							<button type="submit" class="submitBtn primary-font">
