@@ -59,13 +59,17 @@
 				<select on:change={(event) => {eventType = event.currentTarget.value; handleEvents()}}
 								class="w-full p-3 bg-transparent text-gray-500 outline-[#070e4f] border-[#070e4f] accent-[#070e4f]">
 					<option value="" disabled selected>Event Type</option>
-					<option value="CSE CORE">CSE CORE</option>
-					<option value="CSE AI">CSE AI</option>
-					<option value="CSE CYBER">CSE CYBER</option>
-					<option value="DATA SCIENCE">DATA SCIENCE</option>
-					<option value="IT">IT</option>
-					<option value="ECE">ECE</option>
-					<option value="ENC">ENC</option>
+					<option value="INAUGURATION">INAUGURATION</option>
+					<option value="BHARGAVA">Mr. BHARGAVA RAMANA</option>
+					<option value="PANEL">PANEL DISCUSSION</option>
+					<option value="QUIZ">QUIZ PRELIMS</option>
+					<option value="RAMIT">Mr. RAMIT SAWHNEY</option>
+					<option value="VENKATESWARAN">Mr. VENKATESWARAN KRISHNAN</option>
+					<option value="TREASURE">TREASURE HUNT</option>
+					<option value="SARAN">Mr. SARNA JOSEPH</option>
+					<option value="ABHIJIT">Mr. ABHIJIT CHINCHOLKAR</option>
+					<option value="QUIZ FINAL">QUIZ FINAL</option>
+					<option value="CLOSING">CLOSING CEREMONY</option>
 				</select>
 				{#if error.eventTypeError}
 					<p class="error">{error.eventTypeError}</p>

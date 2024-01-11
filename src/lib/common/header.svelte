@@ -88,6 +88,13 @@
 							>
 						</li>
 						{#if $page.data.session}
+							{#if $page.data.session.user.email === "neura.ai.club@gmail.com"}
+								<li class="nav-item">
+									<a class="nav-link active text-3xl" aria-current="page" href="/"
+										 data-bs-dismiss="offcanvas"
+										 on:click={() => menuToggle()}>Mark Attendance</a>
+								</li>
+							{/if}
 							<li class="nav-item">
 								<button class="nav-link bg-transparent active text-3xl primary-font" aria-current="page"
 												data-bs-dismiss="offcanvas"
